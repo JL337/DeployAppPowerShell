@@ -4,7 +4,6 @@ This demo will describe how to take an application, stage it from GitHub and the
 
 ## Getting Started
 
-Install Azure CLI 2.0 
 [Install Latest Version of Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 Check Azure CLI has been downoaded successfully:
