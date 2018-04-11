@@ -1,6 +1,6 @@
-# Stage and Deploy an Application using Azure CLI and PowerShell
+# Stage and Deploy an Application using PowerShell locally
 
-This demo will describe how to take an application, stage it from GitHub and then deploy it live using the Azure CLI locally using PowerShell.
+This demo will describe how to take an application, stage it from GitHub and then deploy it live using PowerShell ISE locally.
 
 ## Getting Started
 
@@ -8,32 +8,13 @@ Ensure you can access Windows PowerShell ISE on your windows machine, and you ha
 
 [Login Azure Portal](https://portal.azure.com)
 
-[Install Latest Version of Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-
-Check Azure CLI has been downoaded successfully:
-
-    Az
-
-
 ## Managing your Application
 
 ### Prerequisites
 
-Open up Windows PowerShell ISE and log in using your credentials:
-
-    az login
-
-You may need to authenticate your device to log in, so follow the prompt if any.
-
-Enter the code that was displayed into your browser link, then choose your Microsoft account to be associated with Microsoft Azure Cross-platform Command Line Interface. Close the browser window after completed.
-
-Check on your console that you have linked your account successfully.
-
-Login to your Azure account from PowerShell:
+Login to your Azure account from PowerShell ISE:
 
     Login-AzureRmAccount
-
-Follow the pop-up window to continue.
 
 ### Set Parameters
 
@@ -84,11 +65,11 @@ Configure GitHub deployment to the staging slot from your GitHub repo and deploy
     -ResourceType Microsoft.Web/sites/slots/sourcecontrols `
     -ResourceName $webappname/staging/web -ApiVersion 2015-08-01 -Force
 
+If you encounter the following issue:
+
 Q: Get exception "Cannot find SourceControlToken with name GitHub".
 
-To setup continuous deployment, An oauth token is required to call GitHub/Bitbucket apis. This token is given to Azure during OAuth consent flow on portal. If you run into this issue, try logon to portal (portal.azure.com) and perform setup continuous deployment once (to any site). The oauth token will be stored for the logon Azure user. Each Azure user will need to go through OAuth consent flow once.
-
-[Set up Continous Deployment via GitHub to Auzure](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-build-continuous-deployment)
+To setup continuous deployment, An oauth token is required to call GitHub/Bitbucket apis. This token is given to Azure during OAuth consent flow on portal. If you run into this issue, try logon to portal (portal.azure.com) and perform setup continuous deployment once (to any site). The oauth token will be stored for the logon Azure user. Each Azure user will need to go through OAuth consent flow once. Then: [Set up Continous Deployment via GitHub to Auzure](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-build-continuous-deployment)
 
 ### Deploy to Live Production
 
