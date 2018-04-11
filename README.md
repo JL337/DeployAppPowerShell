@@ -27,9 +27,9 @@ You may need to authenticate your device to log in, so follow the prompt if any.
 
 Enter the code that was displayed into your browser link, then choose your Microsoft account to be associated with Microsoft Azure Cross-platform Command Line Interface. Close the browser window after completed.
 
-Check on your console that you have linked your Azure account successfully, a JSON file should verify this.
+Check on your console that you have linked your account successfully.
 
-Next login to your Azure account from PowerShell using:
+Login to your Azure account from PowerShell:
 
     Login-AzureRmAccount
 
@@ -37,12 +37,63 @@ Follow the pop-up window to continue.
 
 ### Set Parameters
 
+    $gitrepo="https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git"
+    $webappname="webapp01"
+    $location="West Europe"
+    $rg="app01ResourceGroup"
+
+Check the contents of a parameter:
+
+    echo $<parameter>
+
+### Creating and Allocating Resources
+
+Create a new resource group:
+
+    New-AzureRmResourceGroup -Name $rg -Location $location
+
+Create an App Service plan in Free tier:
+
+    New-AzureRmAppServicePlan -Name $webappname -Location $location `
+    -ResourceGroupName $rg -Tier Free
+
+Create a web app:
+
+    New-AzureRmWebApp -Name $webappname -Location $location `
+    -AppServicePlan $webappname -ResourceGroupName $rg
+
+Upgrade App Service plan to Standard tier (minimum required by deployment slots):
+
+    Set-AzureRmAppServicePlan -Name $webappname -ResourceGroupName $rg `
+    -Tier Standard
+
+### Deploying to Staging Environment
+
+Create a deployment slot with the name "staging":
+
+    New-AzureRmWebAppSlot -Name $webappname -ResourceGroupName $rg `
+    -Slot staging
+
+Configure GitHub deployment to the staging slot from your GitHub repo and deploy once:
+
+    $PropertiesObject = @{
+    repoUrl = "$gitrepo";
+    branch = "master";
+    }
+    Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName $rg `
+    -ResourceType Microsoft.Web/sites/slots/sourcecontrols `
+    -ResourceName $webappname/staging/web -ApiVersion 2015-08-01 -Force
+
+### Deploy to Live Production
+
+Swap the verified/warmed up staging slot into production:
+
+    Switch-AzureRmWebAppSlot -Name $webappname -ResourceGroupName $rg `
+    -SourceSlotName staging -DestinationSlotName production
 
 
+## Removing Resource Group
 
+Remove the resource group, web app, and all related resources:
 
-
-
-
-
-
+    Remove-AzureRmResourceGroup -Name $rg -Force
