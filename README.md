@@ -37,7 +37,7 @@ Follow the pop-up window to continue.
 
 ### Set Parameters
 
-    $gitrepo="https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git"
+    $gitrepo="https://github.com/JL337/app-service-web-dotnet-get-started"
     $webappname="webappAzure110418"
     $location="West Europe"
     $rg="app01ResourceGroup"
