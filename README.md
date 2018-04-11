@@ -1,7 +1,4 @@
-# PowershellDeployApp
-Deployment of an application using Azure, Powershell and the Azure CLI.
-
-# Stage and Deploy an Application using Azure
+# Stage and Deploy an Application using Azure CLI and PowerShell
 
 This demo will describe how to take an application, stage it from GitHub and then deploy it live using the Azure CLI locally using PowerShell
 
