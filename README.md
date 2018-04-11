@@ -88,6 +88,8 @@ Q: Get exception "Cannot find SourceControlToken with name GitHub".
 
 To setup continuous deployment, An oauth token is required to call GitHub/Bitbucket apis. This token is given to Azure during OAuth consent flow on portal. If you run into this issue, try logon to portal (portal.azure.com) and perform setup continuous deployment once (to any site). The oauth token will be stored for the logon Azure user. Each Azure user will need to go through OAuth consent flow once.
 
+[Set up Continous Deployment via GitHub to Auzure](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-build-continuous-deployment)
+
 ### Deploy to Live Production
 
 Swap the verified/warmed up staging slot into production:
