@@ -17,9 +17,28 @@ Check Azure CLI has been downoaded successfully:
 
 ## Managing your Application
 
+### Prerequisites
+
 Open up Windows PowerShell ISE and log in using your credentials:
 
     az login
+
+You may need to authenticate your device to log in, so follow the prompt if any.
+
+Enter the code that was displayed into your browser link, then choose your Microsoft account to be associated with Microsoft Azure Cross-platform Command Line Interface. Close the browser window after completed.
+
+Check on your console that you have linked your Azure account successfully, a JSON file should verify this.
+
+Next login to your Azure account from PowerShell using:
+
+    Login-AzureRmAccount
+
+Follow the pop-up window to continue.
+
+### Set Parameters
+
+
+
 
 
 
