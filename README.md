@@ -1,6 +1,6 @@
 # Stage and Deploy an Application using Azure CLI and PowerShell
 
-This demo will describe how to take an application, stage it from GitHub and then deploy it live using the Azure CLI locally using PowerShell
+This demo will describe how to take an application, stage it from GitHub and then deploy it live using the Azure CLI locally using PowerShell.
 
 ## Getting Started
 
@@ -38,7 +38,7 @@ Follow the pop-up window to continue.
 ### Set Parameters
 
     $gitrepo="https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git"
-    $webappname="webapp01"
+    $webappname="webappAzure110418"
     $location="West Europe"
     $rg="app01ResourceGroup"
 
